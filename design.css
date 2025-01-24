@@ -1,0 +1,186 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex; /* 子要素を横並びにする */
+    width: 100%;
+    height: 100vh; /* ビューポート全体の高さを確保 */
+}
+
+/* 左側スタイル */
+.left {
+    width: 35%; /* 左側の幅を30%に設定 */
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* 子要素を縦に並べる */
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* 各要素のスタイル */
+.date {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+/* デジタル時計のスタイル */
+.digital-clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.time {
+    position: relative; /* 秒を配置するための基準を設定 */
+    font-size: 28px; /* 時と分の大きさ */
+}
+
+.second {
+    position: absolute;
+    bottom: 2px;
+    right: -20px;
+    font-size: 14px; /* 秒のフォントサイズ */
+    color: #555;
+}
+
+.analog-clock {
+    margin: 20px 0;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+/* 右側スタイル */
+.right {
+    width: 65%; /* 右側の幅を70%に設定 */
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* 子要素を縦に並べる */
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.calendar {
+    margin-bottom: 20px;
+    width: 100%;
+    height: calc(100% - 70px); /* タイマーリンクを除いた高さ */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.calendar-container {
+    width: 350px;
+    margin: 20px auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.calendar-header {
+    margin: 1% 0;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7列 */
+    gap: 1px; /* グリッド間の隙間 */
+    background-color: #ccc; /* グリッド全体の背景色 */
+    padding: 3px;
+    margin: 0 1%;
+}
+
+
+@media (max-width: 1000px) {
+    .calendar-day {height: calc((100vh - 70px)/55);}
+}
+
+.calendar-day {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc((100vh - 70px)/13); /* 各セルの高さ */
+}
+
+.calendar-day.header {
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+/* 土曜日のスタイル */
+.calendar-day.saturday {
+    background-color: #e0f7fa;
+    color: #0277bd;
+}
+
+/* 日曜日のスタイル */
+.calendar-day.sunday {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* 祝日のスタイル */
+.calendar-day.holiday {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* 今日の日付のスタイル */
+.calendar-day.today {
+    background-color: #FFFFB3;
+    font-weight: bold;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around; /* リンクを左右に並べる */
+    width: 100%;
+}
+
+.link {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    background-color: #f0f8ff;
+    transition: background-color 0.3s ease;
+}
+
+.link:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.pomodoro {
+    width: 100%;
+    height: calc(100% - 70px);
+    margin-bottom: 20px;
+}

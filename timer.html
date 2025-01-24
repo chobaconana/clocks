@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイマー/ストップウォッチ</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 左側 -->
+        <div class="left">
+            <div class="date">
+                <script>
+                    //今日の日付データを変数に格納
+                    //変数は"today"とする
+                    var today=new Date(); 
+                    //年・月・日・曜日を取得
+                    var year = today.getFullYear();
+                    var month = today.getMonth()+1;
+                    var week = today.getDay();
+                    var day = today.getDate();
+                    var week_ja= new Array("日","月","火","水","木","金","土");
+                    //年・月・日・曜日を書き出す
+                    document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");
+                </script>
+            </div>
+
+            <div class="analog-clock">
+                <div style="width: 100%; margin: auto;">
+                    <div id="clock" offset="+09:00" second="true"></div>
+                </div>
+                <script src="https://cdn.jsdelivr.net/gh/iwnsew/analogclock@1/clock.min.js"></script>        
+            </div>
+            
+            <div class="digital-clock">
+                <div class="time">
+                    <span class="hour">00</span>:<span class="minute">00</span>
+                    <span class="second">00</span>
+                </div>
+                <script>
+                    // 毎秒時計を更新する関数
+                    function updateClock() {
+                        const now = new Date(); // 現在の日時を取得
+                        const hours = String(now.getHours()).padStart(2, '0'); // 時間を2桁にする
+                        const minutes = String(now.getMinutes()).padStart(2, '0'); // 分を2桁にする
+                        const seconds = String(now.getSeconds()).padStart(2, '0'); // 秒を2桁にする
+                        // HTML要素に値を設定
+                        document.querySelector('.hour').textContent = hours;
+                        document.querySelector('.minute').textContent = minutes;
+                        document.querySelector('.second').textContent = seconds;
+                    }
+                    // 毎秒更新を開始
+                    setInterval(updateClock, 1000);
+                    // 初期表示
+                    updateClock();
+                </script>
+                
+            </div>
+        </div>
+
+        <!-- 右側 -->
+        <div class="right">
+            <p>NOW BUILDING...</p>
+            <div class="links">
+                <a href="index.html" class="link">< ホームに戻る</a>
+                <a href="pomodoro.html" class="link">ポモドーロタイマー</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
